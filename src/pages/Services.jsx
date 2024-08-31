@@ -6,18 +6,18 @@ import { Card } from '@/components/ui/card';
 import BackButton from '../components/BackButton';
 
 const services = [
-  { name: 'Digital Marketing', icon: '🌐', description: 'Comprehensive digital strategies to boost your online presence and reach.' },
-  { name: 'Social Media Management', icon: '📱', description: 'Engaging content and community management across all major platforms.' },
-  { name: 'Content Creation', icon: '✍️', description: 'Compelling, SEO-optimized content that resonates with your target audience.' },
-  { name: 'SEO Optimization', icon: '🔍', description: 'Data-driven SEO strategies to improve your search engine rankings.' },
-  { name: 'Email Marketing', icon: '📧', description: 'Personalized email campaigns to nurture leads and drive conversions.' },
-  { name: 'PPC Advertising', icon: '💰', description: 'Targeted pay-per-click campaigns to maximize your ROI.' },
-  { name: 'Brand Strategy', icon: '🎯', description: 'Comprehensive brand development and positioning strategies.' },
-  { name: 'Analytics & Reporting', icon: '📊', description: 'In-depth analysis and reporting to track and improve campaign performance.' },
-  { name: 'Influencer Marketing', icon: '🌟', description: 'Strategic partnerships with influencers to amplify your brand message.' },
-  { name: 'Conversion Rate Optimization', icon: '📈', description: 'Data-driven strategies to improve website conversions.' },
-  { name: 'Marketing Automation', icon: '🤖', description: 'Streamlined marketing processes for improved efficiency and results.' },
-  { name: 'Video Marketing', icon: '🎥', description: 'Engaging video content to captivate and convert your audience.' },
+  { name: translate('digitalMarketing'), icon: '🌐', description: translate('digitalMarketingDesc') },
+  { name: translate('socialMediaManagement'), icon: '📱', description: translate('socialMediaManagementDesc') },
+  { name: translate('contentCreation'), icon: '✍️', description: translate('contentCreationDesc') },
+  { name: translate('seoOptimization'), icon: '🔍', description: translate('seoOptimizationDesc') },
+  { name: translate('emailMarketing'), icon: '📧', description: translate('emailMarketingDesc') },
+  { name: translate('ppcAdvertising'), icon: '💰', description: translate('ppcAdvertisingDesc') },
+  { name: translate('brandStrategy'), icon: '🎯', description: translate('brandStrategyDesc') },
+  { name: translate('analyticsReporting'), icon: '📊', description: translate('analyticsReportingDesc') },
+  { name: translate('influencerMarketing'), icon: '🌟', description: translate('influencerMarketingDesc') },
+  { name: translate('conversionRateOptimization'), icon: '📈', description: translate('conversionRateOptimizationDesc') },
+  { name: translate('marketingAutomation'), icon: '🤖', description: translate('marketingAutomationDesc') },
+  { name: translate('videoMarketing'), icon: '🎥', description: translate('videoMarketingDesc') },
 ];
 
 const questArchitecture = [

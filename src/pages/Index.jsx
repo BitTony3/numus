@@ -62,9 +62,9 @@ const Index = () => {
   ];
 
   const services = [
-    { name: 'AI-Powered Analytics', icon: '🤖', description: 'Harness the power of artificial intelligence for deep insights.' },
-    { name: 'Predictive Marketing', icon: '🔮', description: 'Anticipate trends and customer behavior with advanced algorithms.' },
-    { name: 'Omnichannel Optimization', icon: '🌐', description: 'Seamless integration across all marketing channels for maximum impact.' },
+    { name: translate('digitalMarketing'), icon: '🤖', description: translate('digitalMarketingDesc') },
+    { name: translate('socialMediaManagement'), icon: '🔮', description: translate('socialMediaManagementDesc') },
+    { name: translate('contentCreation'), icon: '🌐', description: translate('contentCreationDesc') },
   ];
 
   return (
@@ -127,7 +127,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Our Impact
+            {translate('ourImpact')}
           </motion.h2>
           <motion.div 
             className="w-full h-64 md:h-96"
@@ -156,7 +156,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Success Stories
+            {translate('successStories')}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatePresence>
@@ -187,7 +187,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Our Services
+            {translate('ourServices')}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (

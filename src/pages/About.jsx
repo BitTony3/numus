@@ -18,7 +18,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          About Notka
+          {translate('about')} Notka
         </motion.h1>
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -27,27 +27,21 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div>
-            <h2 className="text-3xl font-semibold text-green-300 mb-4">Our Story</h2>
+            <h2 className="text-3xl font-semibold text-green-300 mb-4">{translate('ourStory')}</h2>
             <p className="text-lg text-gray-300 mb-6">
-              Notka was founded in 2023 with a vision to revolutionize the digital marketing landscape. 
-              Our team of passionate marketers and tech enthusiasts came together to create a unique 
-              blend of creativity and data-driven strategies.
+              {translate('storyContent')}
             </p>
             <p className="text-lg text-gray-300">
-              Today, we're proud to be at the forefront of innovative marketing solutions, 
-              helping businesses of all sizes achieve their goals in the digital realm.
+              {translate('storyContentExtra')}
             </p>
           </div>
           <div>
-            <h2 className="text-3xl font-semibold text-green-300 mb-4">Our Mission</h2>
+            <h2 className="text-3xl font-semibold text-green-300 mb-4">{translate('ourMission')}</h2>
             <p className="text-lg text-gray-300 mb-6">
-              At Notka, our mission is to empower businesses with cutting-edge marketing strategies 
-              that drive growth, engagement, and lasting success. We believe in the power of 
-              data-driven decisions combined with creative excellence.
+              {translate('missionContent')}
             </p>
             <p className="text-lg text-gray-300">
-              We're committed to staying ahead of the curve, constantly innovating and adapting 
-              to the ever-changing digital landscape to ensure our clients always stay one step ahead.
+              {translate('missionContentExtra')}
             </p>
           </div>
         </motion.div>
