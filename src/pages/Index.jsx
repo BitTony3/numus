@@ -22,7 +22,6 @@ const Index = () => {
   const navigate = useNavigate();
   const { translate } = useLanguage();
 
-  // Removed unused y transform
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 1],
