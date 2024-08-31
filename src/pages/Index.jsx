@@ -1,39 +1,51 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import AnimatedSphere from '../components/AnimatedSphere';
-import TransformingRobot from '../components/TransformingRobot';
+import { OrbitControls, PerspectiveCamera, Text } from '@react-three/drei';
+import FuturisticScene from '../components/FuturisticScene';
+import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
 
 const Index = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  useEffect(() => {
+    document.body.style.overflowX = 'hidden';
+    return () => {
+      document.body.style.overflowX = 'auto';
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-600 via-pink-600 to-red-600">
-      <nav className="bg-white bg-opacity-10 p-4">
-        <motion.h1 
-          className="text-4xl font-bold text-white"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          NextGen Marketing
-        </motion.h1>
-      </nav>
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <MarketingContent />
-          <div className="h-[600px]">
-            <Canvas>
-              <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-              <OrbitControls enableZoom={false} />
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={1} />
-              <AnimatedSphere />
-              <TransformingRobot />
-            </Canvas>
-          </div>
-        </div>
+    <div ref={containerRef} className="min-h-screen bg-black text-white overflow-x-hidden">
+      <FloatingMenu />
+      <div className="h-screen w-full relative">
+        <Canvas className="absolute inset-0">
+          <PerspectiveCamera makeDefault position={[0, 0, 5]} />
+          <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <FuturisticScene />
+          <Text
+            position={[0, 0, -1]}
+            fontSize={0.5}
+            color="#ffffff"
+            anchorX="center"
+            anchorY="middle"
+          >
+            NextGen Marketing
+          </Text>
+        </Canvas>
       </div>
+      <motion.div style={{ y }} className="relative z-10">
+        <MarketingContent />
+      </motion.div>
     </div>
   );
 };
