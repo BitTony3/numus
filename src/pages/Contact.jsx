@@ -42,7 +42,7 @@ const Contact = () => {
               <Input
                 id="name"
                 {...register("name", { required: "Name is required" })}
-                className="mt-1 bg-gray-800 text-white"
+                className="mt-1 bg-green-700 text-white placeholder-green-300"
               />
               {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
             </div>
@@ -52,7 +52,7 @@ const Contact = () => {
                 id="email"
                 type="email"
                 {...register("email", { required: "Email is required" })}
-                className="mt-1 bg-gray-800 text-white"
+                className="mt-1 bg-green-700 text-white placeholder-green-300"
               />
               {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
             </div>
@@ -61,12 +61,12 @@ const Contact = () => {
               <Textarea
                 id="message"
                 {...register("message", { required: "Message is required" })}
-                className="mt-1 bg-gray-800 text-white"
+                className="mt-1 bg-green-700 text-white placeholder-green-300"
                 rows={4}
               />
               {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
             </div>
-            <Button type="submit" className="w-full bg-green-500 hover:bg-green-600">
+            <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white">
               Send Message
             </Button>
           </form>
