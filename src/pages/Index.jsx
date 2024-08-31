@@ -9,6 +9,8 @@ import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
 import { Card } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 const Index = () => {
   const containerRef = useRef(null);
@@ -18,6 +20,7 @@ const Index = () => {
   });
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
+  const { translate } = useLanguage();
 
   // Removed unused y transform
   const backgroundColor = useTransform(
@@ -71,9 +74,12 @@ const Index = () => {
       className="min-h-screen text-white overflow-x-hidden"
       style={{ background: backgroundColor }}
     >
-      <Button onClick={toggleTheme} className="fixed top-4 right-4 z-50 bg-green-600 hover:bg-green-700">
-        {theme === 'dark' ? '☀️' : '🌙'}
-      </Button>
+      <div className="fixed top-4 right-4 z-50 flex space-x-2">
+        <Button onClick={toggleTheme} className="bg-green-600 hover:bg-green-700">
+          {theme === 'dark' ? '☀️' : '🌙'}
+        </Button>
+        <LanguageSwitcher />
+      </div>
       <FloatingMenu />
       <div className="h-screen w-full relative">
         <Canvas className="absolute inset-0">
@@ -94,8 +100,7 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Revolutionizing marketing with cutting-edge AI and data-driven strategies. 
-            Welcome to the future of brand growth and customer engagement.
+            {translate('welcomeMessage')}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -106,7 +111,7 @@ const Index = () => {
               className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-3 rounded-full transition-colors duration-300"
               onClick={handleExploreServices}
             >
-              Explore Our Services
+              {translate('exploreServices')}
             </Button>
           </motion.div>
         </div>
