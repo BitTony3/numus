@@ -38,11 +38,32 @@ const Index = () => {
           <FuturisticScene />
         </Canvas>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black/50">
-          <h1 className="text-6xl font-bold text-green-400 z-10 animate-pulse mb-4">Notka</h1>
-          <p className="text-2xl text-green-200 z-10 max-w-2xl text-center">
+          <motion.h1 
+            className="text-6xl font-bold text-green-400 z-10 mb-4"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Notka
+          </motion.h1>
+          <motion.p 
+            className="text-2xl text-green-200 z-10 max-w-2xl text-center mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Revolutionizing marketing with cutting-edge AI and data-driven strategies. 
             Welcome to the future of brand growth and customer engagement.
-          </p>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Button className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-3 rounded-full transition-colors duration-300">
+              Explore Our Services
+            </Button>
+          </motion.div>
         </div>
       </div>
       <motion.div style={{ y }} className="relative z-10">
