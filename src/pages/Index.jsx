@@ -21,7 +21,7 @@ const Index = () => {
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 1],
-    ["rgba(0, 0, 0, 1)", "rgba(0, 128, 0, 0.8)"]
+    ["rgba(0, 10, 0, 1)", "rgba(0, 50, 0, 0.9)"]
   );
 
   useEffect(() => {
@@ -49,23 +49,29 @@ const Index = () => {
     { title: "Startup Z", description: "Achieved 500% ROI on marketing spend" },
   ];
 
+  const services = [
+    { name: 'AI-Powered Analytics', icon: '🤖', description: 'Harness the power of artificial intelligence for deep insights.' },
+    { name: 'Predictive Marketing', icon: '🔮', description: 'Anticipate trends and customer behavior with advanced algorithms.' },
+    { name: 'Omnichannel Optimization', icon: '🌐', description: 'Seamless integration across all marketing channels for maximum impact.' },
+  ];
+
   return (
     <motion.div 
       ref={containerRef} 
-      className="min-h-screen text-white dark:text-gray-200 overflow-x-hidden"
+      className="min-h-screen text-white overflow-x-hidden"
       style={{ background: backgroundColor }}
     >
-      <Button onClick={toggleTheme} className="fixed top-4 right-4 z-50">
-        Toggle Theme
+      <Button onClick={toggleTheme} className="fixed top-4 right-4 z-50 bg-green-600 hover:bg-green-700">
+        {theme === 'dark' ? '☀️' : '🌙'}
       </Button>
       <FloatingMenu />
       <div className="h-screen w-full relative">
         <Canvas className="absolute inset-0">
           <FuturisticScene />
         </Canvas>
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black/50">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black/70">
           <motion.h1 
-            className="text-6xl font-bold text-green-400 z-10 mb-4"
+            className="text-6xl md:text-8xl font-bold text-green-400 z-10 mb-4"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -73,7 +79,7 @@ const Index = () => {
             Notka
           </motion.h1>
           <motion.p 
-            className="text-2xl text-green-200 z-10 max-w-2xl text-center mb-8"
+            className="text-xl md:text-2xl text-green-200 z-10 max-w-2xl text-center mb-8 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -96,24 +102,23 @@ const Index = () => {
         <MarketingContent />
       </motion.div>
       
-      {/* New Sections */}
       <section className="py-20 bg-gradient-to-r from-green-900 to-black">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl font-bold text-center text-green-400 mb-12"
+            className="text-4xl md:text-5xl font-bold text-center text-green-400 mb-12"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             Our Impact
           </motion.h2>
-          <div className="w-full h-64">
+          <div className="w-full h-64 md:h-96">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1a4a1a" />
+                <XAxis dataKey="name" stroke="#4ade80" />
+                <YAxis stroke="#4ade80" />
+                <Tooltip contentStyle={{ backgroundColor: '#1a4a1a', border: 'none' }} />
                 <Bar dataKey="value" fill="#4ade80" />
               </BarChart>
             </ResponsiveContainer>
@@ -124,7 +129,7 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-r from-black to-green-900">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl font-bold text-center text-green-400 mb-12"
+            className="text-4xl md:text-5xl font-bold text-center text-green-400 mb-12"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -141,13 +146,45 @@ const Index = () => {
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="bg-green-800 p-6 rounded-lg shadow-lg hover:shadow-green-500/50 transition-all duration-300">
+                  <Card className="bg-green-800 p-6 rounded-lg shadow-lg hover:shadow-green-500/50 transition-all duration-300 h-full">
                     <h3 className="text-xl font-bold text-green-400 mb-2">{story.title}</h3>
                     <p className="text-green-200">{story.description}</p>
                   </Card>
                 </motion.div>
               ))}
             </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-r from-green-900 to-black">
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold text-center text-green-400 mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Services
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="bg-green-800 p-6 rounded-lg shadow-lg hover:shadow-green-500/50 transition-all duration-300 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-4xl mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-bold text-green-400 mb-2">{service.name}</h3>
+                    <p className="text-green-200">{service.description}</p>
+                  </div>
+                  <Button className="mt-4 bg-green-600 hover:bg-green-700">Learn More</Button>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

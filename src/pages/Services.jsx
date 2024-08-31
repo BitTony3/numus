@@ -20,11 +20,12 @@ const services = [
 ];
 
 const questArchitecture = [
-  { name: 'Discovery', description: 'Understand your business goals and target audience.' },
-  { name: 'Strategy', description: 'Develop a tailored marketing strategy aligned with your objectives.' },
-  { name: 'Implementation', description: 'Execute the strategy across chosen channels and platforms.' },
-  { name: 'Optimization', description: 'Continuously refine and improve based on data and performance.' },
-  { name: 'Reporting', description: 'Provide regular insights and analytics on campaign performance.' },
+  { name: 'Discovery', description: 'Understand your business goals and target audience.', icon: '🔍' },
+  { name: 'Strategy', description: 'Develop a tailored marketing strategy aligned with your objectives.', icon: '🎯' },
+  { name: 'Implementation', description: 'Execute the strategy across chosen channels and platforms.', icon: '🚀' },
+  { name: 'Optimization', description: 'Continuously refine and improve based on data and performance.', icon: '📈' },
+  { name: 'Reporting', description: 'Provide regular insights and analytics on campaign performance.', icon: '📊' },
+  { name: 'Innovation', description: 'Stay ahead with cutting-edge marketing technologies and trends.', icon: '💡' },
 ];
 
 const ServiceCard = ({ service, index }) => {
@@ -58,8 +59,11 @@ const QuestCard = ({ quest, index }) => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Card className="bg-gradient-to-br from-green-700 to-black p-4 rounded-lg shadow-lg">
-        <h3 className="text-lg font-bold text-green-300 mb-2">{quest.name}</h3>
+      <Card className="bg-gradient-to-br from-green-700 to-black p-6 rounded-lg shadow-lg hover:shadow-green-500/50 transition-all duration-300">
+        <div className="flex items-center mb-4">
+          <span className="text-4xl mr-4">{quest.icon}</span>
+          <h3 className="text-xl font-bold text-green-300">{quest.name}</h3>
+        </div>
         <p className="text-green-100">{quest.description}</p>
       </Card>
     </motion.div>
