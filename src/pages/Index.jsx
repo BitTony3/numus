@@ -17,7 +17,7 @@ const Index = () => {
   });
   const { theme, setTheme } = useTheme();
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // Removed unused y transform
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 1],
@@ -98,9 +98,9 @@ const Index = () => {
           </motion.div>
         </div>
       </div>
-      <motion.div style={{ y }} className="relative z-10">
+      <div className="relative z-10">
         <MarketingContent />
-      </motion.div>
+      </div>
       
       <section className="py-20 bg-gradient-to-r from-green-900 to-black relative z-20">
         <div className="container mx-auto px-4">
