@@ -18,10 +18,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Orbitron', 'sans-serif'],
-        heading: ['Exo 2', 'sans-serif'],
-        body: ['Roboto', 'sans-serif'],
-        hebrew: ['Arial Hebrew', 'Noto Sans Hebrew', 'sans-serif'],
+        sans: ['system-ui', 'sans-serif'],
+        heading: ['Arial', 'sans-serif'],
+        body: ['Helvetica', 'Arial', 'sans-serif'],
+        hebrew: ['Rubik', 'Arial Hebrew', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
