@@ -37,8 +37,12 @@ const Index = () => {
         <Canvas className="absolute inset-0">
           <FuturisticScene />
         </Canvas>
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent to-black/50">
-          <h1 className="text-6xl font-bold text-green-400 z-10 animate-pulse">NextGen Marketing</h1>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black/50">
+          <h1 className="text-6xl font-bold text-green-400 z-10 animate-pulse mb-4">Notka</h1>
+          <p className="text-2xl text-green-200 z-10 max-w-2xl text-center">
+            Revolutionizing marketing with cutting-edge AI and data-driven strategies. 
+            Welcome to the future of brand growth and customer engagement.
+          </p>
         </div>
       </div>
       <motion.div style={{ y }} className="relative z-10">
