@@ -27,10 +27,6 @@ const Index = () => {
       <FloatingMenu />
       <div className="h-screen w-full relative">
         <Canvas className="absolute inset-0">
-          <PerspectiveCamera makeDefault position={[0, 0, 10]} />
-          <OrbitControls enableZoom={false} enablePan={false} />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
           <FuturisticScene />
         </Canvas>
         <div className="absolute inset-0 flex items-center justify-center">
