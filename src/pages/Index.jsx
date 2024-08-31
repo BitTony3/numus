@@ -23,7 +23,7 @@ const Index = () => {
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 1],
-    ["rgba(0, 10, 0, 1)", "rgba(0, 50, 0, 0.9)"]
+    ["rgba(0, 50, 0, 1)", "rgba(0, 100, 0, 0.9)"]
   );
 
   useEffect(() => {

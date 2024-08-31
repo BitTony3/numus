@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import FloatingMenu from '../components/FloatingMenu';
 import { Card } from '@/components/ui/card';
+import BackButton from '../components/BackButton';
 
 const services = [
   { name: 'AI-Powered Analytics', description: 'Harness the power of artificial intelligence for deep insights.' },
@@ -17,8 +18,9 @@ const ExploreServices = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-white to-green-100 text-black'}`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-green-50 to-green-200 text-black'}`}>
       <FloatingMenu />
+      <BackButton />
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl font-bold text-center text-green-400 mb-12"

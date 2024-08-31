@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import FloatingMenu from '../components/FloatingMenu';
 import { useTheme } from 'next-themes';
+import BackButton from '../components/BackButton';
 
 const Contact = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -17,8 +18,9 @@ const Contact = () => {
   };
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-white to-green-100 text-black'}`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-green-50 to-green-200 text-black'}`}>
       <FloatingMenu />
+      <BackButton />
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl font-bold text-center text-green-400 mb-12"
