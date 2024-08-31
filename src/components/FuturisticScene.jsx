@@ -1,6 +1,7 @@
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Sphere, PerspectiveCamera, OrbitControls, Instances, Instance } from '@react-three/drei';
+import * as THREE from 'three';
 import MatrixRain from './MatrixRain';
 
 const TornadoEffect = ({ count = 1000 }) => {
