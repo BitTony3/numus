@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Button } from '@/components/ui/button';
 import { useTheme } from 'next-themes';
 import FuturisticScene from '../components/FuturisticScene';
 import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
+import { Card } from '@/components/ui/card';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const Index = () => {
   const containerRef = useRef(null);
@@ -32,6 +34,20 @@ const Index = () => {
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+
+  const chartData = [
+    { name: 'Jan', value: 400 },
+    { name: 'Feb', value: 300 },
+    { name: 'Mar', value: 600 },
+    { name: 'Apr', value: 800 },
+    { name: 'May', value: 500 },
+  ];
+
+  const successStories = [
+    { title: "Brand X", description: "Increased online sales by 200% in 6 months" },
+    { title: "Company Y", description: "Grew social media following from 10k to 1M" },
+    { title: "Startup Z", description: "Achieved 500% ROI on marketing spend" },
+  ];
 
   return (
     <motion.div 
@@ -79,6 +95,62 @@ const Index = () => {
       <motion.div style={{ y }} className="relative z-10">
         <MarketingContent />
       </motion.div>
+      
+      {/* New Sections */}
+      <section className="py-20 bg-gradient-to-r from-green-900 to-black">
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-4xl font-bold text-center text-green-400 mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Impact
+          </motion.h2>
+          <div className="w-full h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={chartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="value" fill="#4ade80" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-r from-black to-green-900">
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-4xl font-bold text-center text-green-400 mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Success Stories
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <AnimatePresence>
+              {successStories.map((story, index) => (
+                <motion.div
+                  key={story.title}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="bg-green-800 p-6 rounded-lg shadow-lg hover:shadow-green-500/50 transition-all duration-300">
+                    <h3 className="text-xl font-bold text-green-400 mb-2">{story.title}</h3>
+                    <p className="text-green-200">{story.description}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
     </motion.div>
   );
 };
