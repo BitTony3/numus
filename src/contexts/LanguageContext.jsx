@@ -8,13 +8,8 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     const loadTranslations = async () => {
-      try {
-        const translationsModule = await import(`../locales/${language}.json`);
-        setTranslations(translationsModule.default);
-      } catch (error) {
-        console.error(`Failed to load translations for ${language}:`, error);
-        setTranslations({});
-      }
+      const translationsModule = await import(`../locales/${language}.json`);
+      setTranslations(translationsModule.default);
     };
     loadTranslations();
   }, [language]);
@@ -28,10 +23,4 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-};
+export const useLanguage = () => useContext(LanguageContext);
