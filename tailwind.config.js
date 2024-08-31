@@ -17,6 +17,11 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Orbitron', 'sans-serif'],
+        heading: ['Exo 2', 'sans-serif'],
+        body: ['Roboto', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

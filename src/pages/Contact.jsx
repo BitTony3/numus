@@ -23,7 +23,7 @@ const Contact = () => {
       <BackButton />
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
-          className="text-5xl font-bold text-center text-green-400 mb-12"
+          className="text-5xl font-bold text-center text-green-400 mb-12 font-heading"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
