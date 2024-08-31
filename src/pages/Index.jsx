@@ -91,7 +91,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {translate('companyName')}
+            Numus
           </motion.h1>
           <motion.p 
             className="text-xl md:text-2xl text-green-200 z-10 max-w-2xl text-center mb-8 px-4 font-body"

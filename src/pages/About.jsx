@@ -18,7 +18,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {translate('about')} Notka
+          {translate('about')} Numus
         </motion.h1>
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
