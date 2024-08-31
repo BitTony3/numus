@@ -6,11 +6,56 @@ import { useTheme } from 'next-themes';
 import { useNavigate } from 'react-router-dom';
 import FuturisticScene from '../components/FuturisticScene';
 import FloatingMenu from '../components/FloatingMenu';
-import MarketingContent from '../components/MarketingContent';
 import { Card } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+
+const MarketingContent = () => {
+  const { translate } = useLanguage();
+  
+  const contentSections = [
+    {
+      title: translate('revolutionizeTitle'),
+      description: translate('revolutionizeDescription'),
+      buttonText: translate('getStarted')
+    },
+    {
+      title: translate('aiCampaignsTitle'),
+      description: translate('aiCampaignsDescription'),
+      buttonText: translate('learnMore')
+    },
+    {
+      title: translate('realTimeAnalyticsTitle'),
+      description: translate('realTimeAnalyticsDescription'),
+      buttonText: translate('seeDemo')
+    }
+  ];
+
+  return (
+    <div className="bg-gradient-to-b from-green-900 to-black py-20">
+      {contentSections.map((section, index) => (
+        <motion.div
+          key={index}
+          className="max-w-4xl mx-auto text-white mb-32 px-4"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.2 }}
+        >
+          <h2 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">
+            {section.title}
+          </h2>
+          <p className="text-2xl mb-8 text-gray-300">
+            {section.description}
+          </p>
+          <Button className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-3 rounded-full transition-colors duration-300">
+            {section.buttonText}
+          </Button>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 const Index = () => {
   const containerRef = useRef(null);
@@ -20,7 +65,7 @@ const Index = () => {
   });
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
-  const { translate } = useLanguage();
+  const { translate, language } = useLanguage();
 
   const backgroundColor = useTransform(
     scrollYProgress,
@@ -70,7 +115,7 @@ const Index = () => {
   return (
     <motion.div 
       ref={containerRef} 
-      className="min-h-screen text-white overflow-x-hidden"
+      className={`min-h-screen text-white overflow-x-hidden ${language === 'he' ? 'font-hebrew' : ''}`}
       style={{ background: backgroundColor }}
     >
       <div className="fixed top-4 right-4 z-50 flex space-x-2">

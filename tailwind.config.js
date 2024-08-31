@@ -21,6 +21,7 @@ module.exports = {
         sans: ['Orbitron', 'sans-serif'],
         heading: ['Exo 2', 'sans-serif'],
         body: ['Roboto', 'sans-serif'],
+        hebrew: ['Arial Hebrew', 'Noto Sans Hebrew', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
