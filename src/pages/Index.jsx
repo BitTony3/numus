@@ -67,7 +67,7 @@ const Index = () => {
   const navigate = useNavigate();
   const { translate, language } = useLanguage();
 
-  const fontClass = language === 'he' ? 'font-hebrew' : 'font-sans';
+  const fontClass = language === 'he' ? 'font-hebrew' : 'font-sans tracking-wide';
 
   const backgroundColor = useTransform(
     scrollYProgress,
@@ -133,7 +133,7 @@ const Index = () => {
         </Canvas>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black/70">
           <motion.h1 
-            className={`text-6xl md:text-8xl font-bold text-green-400 z-10 mb-4 ${language === 'he' ? 'font-hebrew' : 'font-heading'}`}
+            className={`text-6xl md:text-8xl font-bold text-green-400 z-10 mb-4 ${language === 'he' ? 'font-hebrew' : 'font-heading tracking-wider'}`}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -141,7 +141,7 @@ const Index = () => {
             Numus
           </motion.h1>
           <motion.p 
-            className={`text-xl md:text-2xl text-green-200 z-10 max-w-2xl text-center mb-8 px-4 ${language === 'he' ? 'font-hebrew' : 'font-body'}`}
+            className={`text-xl md:text-2xl text-green-200 z-10 max-w-2xl text-center mb-8 px-4 ${language === 'he' ? 'font-hebrew' : 'font-body tracking-wide'}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}

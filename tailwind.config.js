@@ -18,9 +18,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['system-ui', 'sans-serif'],
-        heading: ['Arial', 'sans-serif'],
-        body: ['Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Orbitron', 'system-ui', 'sans-serif'],
+        heading: ['Exo 2', 'Arial', 'sans-serif'],
+        body: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
         hebrew: ['Rubik', 'Arial Hebrew', 'sans-serif'],
       },
       colors: {
