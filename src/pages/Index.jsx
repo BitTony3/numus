@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Canvas } from '@react-three/fiber';
 import { Button } from '@/components/ui/button';
 import { useTheme } from 'next-themes';
+import { useNavigate } from 'react-router-dom';
 import FuturisticScene from '../components/FuturisticScene';
 import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
@@ -16,6 +17,7 @@ const Index = () => {
     offset: ["start start", "end start"]
   });
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
 
   // Removed unused y transform
   const backgroundColor = useTransform(
@@ -33,6 +35,14 @@ const Index = () => {
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  const handleExploreServices = () => {
+    navigate('/explore-services');
+  };
+
+  const handleLearnMore = () => {
+    navigate('/learn-more');
   };
 
   const chartData = [
@@ -92,7 +102,10 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Button className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-3 rounded-full transition-colors duration-300">
+            <Button 
+              className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-3 rounded-full transition-colors duration-300"
+              onClick={handleExploreServices}
+            >
               Explore Our Services
             </Button>
           </motion.div>
@@ -186,7 +199,7 @@ const Index = () => {
                     <h3 className="text-xl font-bold text-green-400 mb-2">{service.name}</h3>
                     <p className="text-green-200">{service.description}</p>
                   </div>
-                  <Button className="mt-4 bg-green-600 hover:bg-green-700">Learn More</Button>
+                  <Button className="mt-4 bg-green-600 hover:bg-green-700" onClick={handleLearnMore}>Learn More</Button>
                 </Card>
               </motion.div>
             ))}
