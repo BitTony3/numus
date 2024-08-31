@@ -7,7 +7,7 @@ const FloatingMenu = () => {
 
   return (
     <motion.nav
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white bg-opacity-10 backdrop-blur-md rounded-full px-6 py-3"
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-green-500 to-green-700 bg-opacity-80 backdrop-blur-md rounded-full px-6 py-3"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 120 }}
@@ -16,7 +16,7 @@ const FloatingMenu = () => {
         <Button
           key={index}
           variant="ghost"
-          className="text-white hover:text-blue-300 transition-colors duration-300 mx-2"
+          className="text-white hover:text-green-200 transition-colors duration-300 mx-2"
         >
           {item}
         </Button>
