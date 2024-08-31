@@ -4,21 +4,24 @@ import FloatingMenu from '../components/FloatingMenu';
 import { useTheme } from 'next-themes';
 import { Card } from '@/components/ui/card';
 import BackButton from '../components/BackButton';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const services = [
-  { name: translate('digitalMarketing'), icon: '🌐', description: translate('digitalMarketingDesc') },
-  { name: translate('socialMediaManagement'), icon: '📱', description: translate('socialMediaManagementDesc') },
-  { name: translate('contentCreation'), icon: '✍️', description: translate('contentCreationDesc') },
-  { name: translate('seoOptimization'), icon: '🔍', description: translate('seoOptimizationDesc') },
-  { name: translate('emailMarketing'), icon: '📧', description: translate('emailMarketingDesc') },
-  { name: translate('ppcAdvertising'), icon: '💰', description: translate('ppcAdvertisingDesc') },
-  { name: translate('brandStrategy'), icon: '🎯', description: translate('brandStrategyDesc') },
-  { name: translate('analyticsReporting'), icon: '📊', description: translate('analyticsReportingDesc') },
-  { name: translate('influencerMarketing'), icon: '🌟', description: translate('influencerMarketingDesc') },
-  { name: translate('conversionRateOptimization'), icon: '📈', description: translate('conversionRateOptimizationDesc') },
-  { name: translate('marketingAutomation'), icon: '🤖', description: translate('marketingAutomationDesc') },
-  { name: translate('videoMarketing'), icon: '🎥', description: translate('videoMarketingDesc') },
-];
+const Services = () => {
+  const { translate } = useLanguage();
+  const services = [
+    { name: translate('digitalMarketing'), icon: '🌐', description: translate('digitalMarketingDesc') },
+    { name: translate('socialMediaManagement'), icon: '📱', description: translate('socialMediaManagementDesc') },
+    { name: translate('contentCreation'), icon: '✍️', description: translate('contentCreationDesc') },
+    { name: translate('seoOptimization'), icon: '🔍', description: translate('seoOptimizationDesc') },
+    { name: translate('emailMarketing'), icon: '📧', description: translate('emailMarketingDesc') },
+    { name: translate('ppcAdvertising'), icon: '💰', description: translate('ppcAdvertisingDesc') },
+    { name: translate('brandStrategy'), icon: '🎯', description: translate('brandStrategyDesc') },
+    { name: translate('analyticsReporting'), icon: '📊', description: translate('analyticsReportingDesc') },
+    { name: translate('influencerMarketing'), icon: '🌟', description: translate('influencerMarketingDesc') },
+    { name: translate('conversionRateOptimization'), icon: '📈', description: translate('conversionRateOptimizationDesc') },
+    { name: translate('marketingAutomation'), icon: '🤖', description: translate('marketingAutomationDesc') },
+    { name: translate('videoMarketing'), icon: '🎥', description: translate('videoMarketingDesc') },
+  ];
 
 const questArchitecture = [
   { name: 'Discovery', description: 'Understand your business goals and target audience.', icon: '🔍' },
