@@ -56,9 +56,9 @@ const Index = () => {
   ];
 
   const successStories = [
-    { title: "Brand X", description: "Increased online sales by 200% in 6 months" },
-    { title: "Company Y", description: "Grew social media following from 10k to 1M" },
-    { title: "Startup Z", description: "Achieved 500% ROI on marketing spend" },
+    { title: translate('successStory1Title'), description: translate('successStory1Desc') },
+    { title: translate('successStory2Title'), description: translate('successStory2Desc') },
+    { title: translate('successStory3Title'), description: translate('successStory3Desc') },
   ];
 
   const services = [
@@ -91,7 +91,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Notka
+            {translate('companyName')}
           </motion.h1>
           <motion.p 
             className="text-xl md:text-2xl text-green-200 z-10 max-w-2xl text-center mb-8 px-4 font-body"
@@ -203,7 +203,7 @@ const Index = () => {
                     <h3 className="text-xl font-bold text-green-400 mb-2">{service.name}</h3>
                     <p className="text-green-200">{service.description}</p>
                   </div>
-                  <Button className="mt-4 bg-green-600 hover:bg-green-700" onClick={handleLearnMore}>Learn More</Button>
+                  <Button className="mt-4 bg-green-600 hover:bg-green-700" onClick={handleLearnMore}>{translate('learnMore')}</Button>
                 </Card>
               </motion.div>
             ))}
