@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import FloatingMenu from '../components/FloatingMenu';
 import { useTheme } from 'next-themes';
 import BackButton from '../components/BackButton';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
   const { theme } = useTheme();
+  const { translate } = useLanguage();
 
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-green-50 to-green-200 text-black'}`}>
