@@ -102,7 +102,7 @@ const Index = () => {
         <MarketingContent />
       </motion.div>
       
-      <section className="py-20 bg-gradient-to-r from-green-900 to-black">
+      <section className="py-20 bg-gradient-to-r from-green-900 to-black relative z-20">
         <div className="container mx-auto px-4">
           <motion.h2 
             className="text-4xl md:text-5xl font-bold text-center text-green-400 mb-12"
@@ -112,7 +112,12 @@ const Index = () => {
           >
             Our Impact
           </motion.h2>
-          <div className="w-full h-64 md:h-96">
+          <motion.div 
+            className="w-full h-64 md:h-96"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#1a4a1a" />
@@ -122,7 +127,7 @@ const Index = () => {
                 <Bar dataKey="value" fill="#4ade80" />
               </BarChart>
             </ResponsiveContainer>
-          </div>
+          </motion.div>
         </div>
       </section>
 
