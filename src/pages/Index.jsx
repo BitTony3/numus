@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Text } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import FuturisticScene from '../components/FuturisticScene';
 import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
@@ -27,21 +27,15 @@ const Index = () => {
       <FloatingMenu />
       <div className="h-screen w-full relative">
         <Canvas className="absolute inset-0">
-          <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-          <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
+          <PerspectiveCamera makeDefault position={[0, 0, 10]} />
+          <OrbitControls enableZoom={false} enablePan={false} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
           <FuturisticScene />
-          <Text
-            position={[0, 0, -1]}
-            fontSize={0.5}
-            color="#ffffff"
-            anchorX="center"
-            anchorY="middle"
-          >
-            NextGen Marketing
-          </Text>
         </Canvas>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-6xl font-bold text-white z-10">NextGen Marketing</h1>
+        </div>
       </div>
       <motion.div style={{ y }} className="relative z-10">
         <MarketingContent />
