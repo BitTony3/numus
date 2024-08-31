@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
+import { Button } from '@/components/ui/button';
 import FuturisticScene from '../components/FuturisticScene';
 import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
