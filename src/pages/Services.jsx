@@ -8,6 +8,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
   const { translate } = useLanguage();
+  const { theme } = useTheme();
+
   const services = [
     { name: translate('digitalMarketing'), icon: '🌐', description: translate('digitalMarketingDesc') },
     { name: translate('socialMediaManagement'), icon: '📱', description: translate('socialMediaManagementDesc') },
@@ -23,17 +25,16 @@ const Services = () => {
     { name: translate('videoMarketing'), icon: '🎥', description: translate('videoMarketingDesc') },
   ];
 
-const questArchitecture = [
-  { name: 'Discovery', description: 'Understand your business goals and target audience.', icon: '🔍' },
-  { name: 'Strategy', description: 'Develop a tailored marketing strategy aligned with your objectives.', icon: '🎯' },
-  { name: 'Implementation', description: 'Execute the strategy across chosen channels and platforms.', icon: '🚀' },
-  { name: 'Optimization', description: 'Continuously refine and improve based on data and performance.', icon: '📈' },
-  { name: 'Reporting', description: 'Provide regular insights and analytics on campaign performance.', icon: '📊' },
-  { name: 'Innovation', description: 'Stay ahead with cutting-edge marketing technologies and trends.', icon: '💡' },
-];
+  const questArchitecture = [
+    { name: 'Discovery', description: 'Understand your business goals and target audience.', icon: '🔍' },
+    { name: 'Strategy', description: 'Develop a tailored marketing strategy aligned with your objectives.', icon: '🎯' },
+    { name: 'Implementation', description: 'Execute the strategy across chosen channels and platforms.', icon: '🚀' },
+    { name: 'Optimization', description: 'Continuously refine and improve based on data and performance.', icon: '📈' },
+    { name: 'Reporting', description: 'Provide regular insights and analytics on campaign performance.', icon: '📊' },
+    { name: 'Innovation', description: 'Stay ahead with cutting-edge marketing technologies and trends.', icon: '💡' },
+  ];
 
-const ServiceCard = ({ service, index }) => {
-  return (
+  const ServiceCard = ({ service, index }) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -54,10 +55,8 @@ const ServiceCard = ({ service, index }) => {
       </Card>
     </motion.div>
   );
-};
 
-const QuestCard = ({ quest, index }) => {
-  return (
+  const QuestCard = ({ quest, index }) => (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       animate={{ opacity: 1, x: 0 }}
@@ -72,10 +71,6 @@ const QuestCard = ({ quest, index }) => {
       </Card>
     </motion.div>
   );
-};
-
-const Services = () => {
-  const { theme } = useTheme();
 
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-green-50 to-green-200 text-black'}`}>
@@ -123,3 +118,5 @@ const Services = () => {
     </div>
   );
 };
+
+export default Services;
