@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import FloatingMenu from '../components/FloatingMenu';
+import { useTheme } from 'next-themes';
 
 const services = [
   { name: 'Digital Marketing', icon: '🌐', description: 'Comprehensive digital strategies to boost your online presence and reach.' },
@@ -41,8 +42,10 @@ const ServiceCard = ({ service, index }) => {
 };
 
 const Services = () => {
+  const { theme } = useTheme();
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-green-900 text-white">
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-green-900 text-white' : 'bg-gradient-to-b from-white to-green-100 text-black'}`}>
       <FloatingMenu />
       <div className="container mx-auto px-4 py-16">
         <motion.h1 

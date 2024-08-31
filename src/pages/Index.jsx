@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Button } from '@/components/ui/button';
+import { useTheme } from 'next-themes';
 import FuturisticScene from '../components/FuturisticScene';
 import FloatingMenu from '../components/FloatingMenu';
 import MarketingContent from '../components/MarketingContent';
@@ -12,6 +13,7 @@ const Index = () => {
     target: containerRef,
     offset: ["start start", "end start"]
   });
+  const { theme, setTheme } = useTheme();
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const backgroundColor = useTransform(
@@ -27,12 +29,19 @@ const Index = () => {
     };
   }, []);
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <motion.div 
       ref={containerRef} 
-      className="min-h-screen text-white overflow-x-hidden"
+      className="min-h-screen text-white dark:text-gray-200 overflow-x-hidden"
       style={{ background: backgroundColor }}
     >
+      <Button onClick={toggleTheme} className="fixed top-4 right-4 z-50">
+        Toggle Theme
+      </Button>
       <FloatingMenu />
       <div className="h-screen w-full relative">
         <Canvas className="absolute inset-0">
